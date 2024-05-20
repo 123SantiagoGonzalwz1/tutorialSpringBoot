@@ -68,4 +68,17 @@ public class Rutas {
     public int getCalculo(@PathVariable int numero) {
         throw new NullPointerException("Esta excepción ocurrio porque habla de información no relevante para el cliente.");
     }
+
+    @GetMapping("/userData")
+    public ResponseEntity<String> getUserData() {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .header("Content-Type","application/json")
+                .body("{\"name\": \"mary\"}");
+    }
+
+    @GetMapping("/userData/v2")
+    public Map<String, Map<String, Object>> getUserDataV2() {
+        return Map.of("user", Map.of("name", "mary", "age", 25));
+    }
 }

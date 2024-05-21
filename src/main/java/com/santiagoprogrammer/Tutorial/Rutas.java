@@ -1,6 +1,7 @@
 package com.santiagoprogrammer.Tutorial;
 
 import com.santiagoprogrammer.Tutorial.models.Libro;
+import com.santiagoprogrammer.Tutorial.models.UserData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -80,5 +81,10 @@ public class Rutas {
     @GetMapping("/userData/v2")
     public Map<String, Map<String, Object>> getUserDataV2() {
         return Map.of("user", Map.of("name", "mary", "age", 25));
+    }
+
+    @GetMapping("/userData/v3")
+    public UserData getUserDataV3() {
+        return new UserData("mary", 25, "Ciudad Verde");
     }
 }
